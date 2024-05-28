@@ -1,5 +1,6 @@
-from flask import render_template
-from . import main
+from flask import render_template, Blueprint
+
+main = Blueprint('main', __name__, static_url_path='/main/static', template_folder='templates', static_folder='static')
 
 
 @main.route('/')
