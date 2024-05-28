@@ -1,6 +1,6 @@
 from six import StringIO
 from lesscpy import compile
-from os import listdir, path
+from os import listdir, path, mkdir
 
 
 # Convert LESS to CSS
@@ -32,6 +32,13 @@ def compile_module_less(module):
 
 def compile_less(static_directory):
     less_files = listdir(f'{static_directory}/less')
+    if 'css' not in listdir(static_directory):
+        print(f'"{static_directory}/css" not found. Creating...')
+        try:
+            mkdir(f'{static_directory}/css')
+            print(f'"{static_directory}/css" has been created.')
+        except Exception as e:
+            print(f'Failed to create directory: {e}')
 
     for file in less_files:
         filename = path.splitext(file)[0]
