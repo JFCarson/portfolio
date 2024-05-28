@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>
+    Jack Carson {% if pagekey != 'Index' %}| {{ pagekey }}{% endif %}
+</title>
+<link rel="stylesheet" href="{{ url_for('.static', filename='css/' + pagekey + '.css') }}" />
+{% endblock %}
+
+{% block body %}
+{% block content %}{% endblock %}
+{% endblock %}
