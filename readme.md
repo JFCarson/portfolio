@@ -30,7 +30,8 @@ If you choose to run this code locally, please take the following steps in the c
 ---
 
 ## Features
-*Looking a bit empty here at the moment...*
+
+- LESS compiler using the 'lesscpy' library that dynamically generates CSS files across all parts of the website.
 
 ---
 
