@@ -1,3 +1,46 @@
-#Index {
-    color: red;
+@import './static/less/variables.less';
+@import './static/less/mixins.less';
+
+body#Index {
+    section#ImageLeft {
+        height: 100%;
+        left: 0;
+        position: fixed;
+        width: 40%;
+        z-index: @main-z-index;
+        background-image: url('../img/portrait.png');
+        background-size: 100%;
+        background-position: left center;
+        background-repeat: no-repeat;
+    }
+
+    main {
+        height: 100%;
+        right: 0;
+        width: 60%;
+
+        section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+
+            article {
+                margin-right: 15em;
+
+                &#NameCard {
+                    h1 {
+                        color: @name-card-header-color;
+                        font-size: @name-card-header-size;
+                    }
+
+                    p {
+                        color: @name-card-text-color;
+                        font-size: @name-card-text-size;
+                        margin: unset;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,0 +1,85 @@
+// Colours
+@brand-primary: #48acf0;
+@brand-secondary: #79b791;
+@brand-tertiary: #abd1b5;
+
+@brand-text: #383436;
+@brand-header: #201e1f;
+@brand-background: #fff;
+@brand-border: #ccc;
+
+// Links
+@link-darken-percentage: 5%;
+
+// Fonts
+@font-face {
+    font-family: 'Exo';
+    src: url('/static/fonts/Exo-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@default-font-family: 'Exo', sans-serif;
+
+// Sizes
+@default-font-size: 18px;
+@default-header-font-size: 24px;
+@default-line-height: 1.6;
+@default-border-size: 1px;
+@default-bar-size: 7em;
+
+// Media
+@width-mobile: 768px;
+
+// Z-Index
+@main-z-index: 1;
+@aside-z-index: 2;
+@header-z-index: 3;
+
+
+// Elements
+
+// Header
+@header-background-color: @brand-background;
+@header-text-color: @brand-header;
+@header-height: @default-bar-size;
+@header-margin-top: 3em;
+@header-border-radius: calc(@header-height / 2);
+@header-image-size: calc(@header-height - 2em);
+@header-cv-button-width: 15em;
+
+// Main
+@main-background-color: @brand-background;
+@main-text-color: @brand-text;
+@main-padding: 2em 8em 2em 4em;
+
+// Aside
+@aside-background-color: @brand-background;
+@aside-width: @default-bar-size;
+@aside-border-color: @brand-border;
+@aside-border-size: @default-border-size;
+@aside-image-padding: 1em;
+@aside-image-size: calc(@aside-width - 3em);
+@aside-image-gap: 1em;
+@aside-padding-top: calc(@header-margin-top + @header-height + 2em);
+@aside-padding-bottom: calc(@aside-padding-top / 5);
+
+// Name Card
+@name-card-header-color: @brand-header;
+@name-card-text-color: @brand-primary;
+@name-card-header-size: 50px;
+@name-card-text-size: calc(@name-card-header-size / 2);
+
+
+// Buttons
+
+// Default Button
+@button-width: 20em;
+@button-padding: 1em 2em;
+@button-text-color: @brand-text;
+@button-background-color: @brand-background;
+@button-background-hover-darken: @link-darken-percentage;
+@button-border-color: @brand-border;
+@button-border-size: @default-border-size;
+@button-border-radius: calc(@button-width / 2);
+@button-arrow-margin: 1em;

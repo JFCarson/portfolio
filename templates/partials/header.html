@@ -1,0 +1,14 @@
+<header>
+    <article>
+        <a href="{{ url_for('main.index') }}">
+            <img src="{{ url_for('static', filename='img/header_icon.png') }}" alt="Site Logo">
+        </a>
+    </article>
+    <nav>
+        <a href="{{ url_for('main.index') }}" id="IndexNav">Home</a>
+        <a href="{{ url_for('main.about') }}" id="AboutNav">About</a>
+        <a href="#" id="ProjectsNav">Projects</a>
+        <a href="#" id="ContactNav">Contact Me</a>
+        <a href="#" id="DownloadCV" class="button primary">Download CV</a>
+    </nav>
+</header>

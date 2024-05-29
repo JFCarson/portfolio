@@ -2,10 +2,8 @@ from flask import Flask
 from apps.main.package import main
 from utils.devtools import launch
 
-# Dev Tools
-development = True
-if development:
-    launch()
+# Run Start-up Scripts
+launch()
 
 # Create Main Application
 app = Flask(__name__)
