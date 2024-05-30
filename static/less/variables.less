@@ -4,12 +4,9 @@
 @brand-tertiary: #abd1b5;
 
 @brand-text: #383436;
-@brand-header: #201e1f;
+@brand-text-dark: #201e1f;
 @brand-background: #fff;
-@brand-border: #ccc;
-
-// Links
-@link-darken-percentage: 5%;
+@brand-border: #eee;
 
 // Fonts
 @font-face {
@@ -22,8 +19,8 @@
 @default-font-family: 'Exo', sans-serif;
 
 // Sizes
-@default-font-size: 18px;
-@default-header-font-size: 24px;
+@default-font-size: 0.9vw;
+@default-header-font-size: 1.2vw;
 @default-line-height: 1.6;
 @default-border-size: 1px;
 @default-bar-size: 7em;
@@ -41,12 +38,16 @@
 
 // Header
 @header-background-color: @brand-background;
-@header-text-color: @brand-header;
+@header-text-color: @brand-text-dark;
 @header-height: @default-bar-size;
 @header-margin-top: 3em;
 @header-border-radius: calc(@header-height / 2);
 @header-image-size: calc(@header-height - 2em);
 @header-cv-button-width: 15em;
+
+// Nav Bar
+@nav-border-size: @default-border-size;
+@nav-link-active-text-color: @brand-primary;
 
 // Main
 @main-background-color: @brand-background;
@@ -65,20 +66,24 @@
 @aside-padding-bottom: calc(@aside-padding-top / 5);
 
 // Name Card
-@name-card-header-color: @brand-header;
+@name-card-header-color: @brand-text-dark;
 @name-card-text-color: @brand-primary;
-@name-card-header-size: 50px;
-@name-card-text-size: calc(@name-card-header-size / 2);
+@name-card-header-size: 4vw;
+@name-card-text-size: 2vw;
+@name-card-height: 10vw;
 
 
-// Buttons
+// Links & Buttons
+
+// Link
+@link-text-color: @brand-text-dark;
 
 // Default Button
 @button-width: 20em;
 @button-padding: 1em 2em;
-@button-text-color: @brand-text;
+@button-text-color: @brand-text-dark;
 @button-background-color: @brand-background;
-@button-background-hover-darken: @link-darken-percentage;
+@button-background-hover-darken: 3%;
 @button-border-color: @brand-border;
 @button-border-size: @default-border-size;
 @button-border-radius: calc(@button-width / 2);

@@ -4,30 +4,21 @@
 // Reset Default Browser Styles
 * {
     box-sizing: border-box;
+    font-size: @default-font-size;
     margin: 0;
     padding: 0;
 }
 
+// Universal Styling
+
 a {
-    color: @header-text-color;
+    color: @link-text-color;
     font-weight: bold;
     text-decoration: none;
     width: 20%;
-
-    &:hover {
-        color: darken(@header-text-color, @link-darken-percentage);
-    }
-
-    &.active {
-        color: @brand-primary;
-
-        &:hover {
-            color: darken(@brand-primary, @link-darken-percentage);
-        }
-    }
 }
 
-// Generic Styling
+// Body Styling
 body {
     background-color: @brand-background;
     color: @brand-text;
@@ -62,9 +53,39 @@ body {
             align-items: center;
             display: flex;
             flex-direction: row;
-            justify-content: flex-end;
+            justify-content: space-between;
             padding: 0 2em;
             width: 60%;
+
+            span {
+                display: inline-block;
+                position: relative;
+
+                &:before {
+                    background-color: @link-text-color;
+                    bottom: -1px;
+                    content: '';
+                    height: 2px;
+                    position: absolute;
+                    transition: width 0.3s ease-in-out;
+                    width: 0;
+                }
+
+                &.active {
+                    a {
+                        color: @nav-link-active-text-color;
+                    }
+                    &:before {
+                        background-color: @nav-link-active-text-color;
+                    }
+                }
+
+                &:hover {
+                    &:before {
+                        width: 100%;
+                    }
+                }
+            }
 
             #DownloadCV.button {
                 width: @header-cv-button-width;
@@ -84,12 +105,6 @@ body {
         padding-top: calc(@header-margin-top + @header-height + 2em);
         position: fixed;
         z-index: @main-z-index;
-
-        article {
-            p {
-                margin: 1em 0;
-            }
-        }
     }
 
     aside {
@@ -121,7 +136,7 @@ body {
                     width: @aside-image-size;
 
                     &:hover {
-                        background-color: darken(@aside-background-color, @link-darken-percentage);
+                        background-color: darken(@aside-background-color, @button-background-hover-darken);
                     }
 
                 }

@@ -22,13 +22,18 @@ body#Index {
         section {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             height: 100%;
 
             article {
-                margin-right: 15em;
+                @article-margin-right: 15em;
 
                 &#NameCard {
+                    display: inline-block;
+                    height: @name-card-height;
+                    margin-right: @article-margin-right;
+                    margin-top: 3vw;
+
                     h1 {
                         color: @name-card-header-color;
                         font-size: @name-card-header-size;
@@ -40,7 +45,31 @@ body#Index {
                         margin: unset;
                     }
                 }
+                &#PersonalStatement {
+                    display: flex;
+                    flex-direction: column;
+                    flex-grow: 1;
+                    margin: 1vw @article-margin-right 5vw 0;
+                    opacity: 0;
+
+                    p {
+                        flex-grow: 1;
+                    }
+
+                    &.display {
+                        animation: fadeIn 1.25s ease-in forwards;
+                    }
+
+                    .button {
+                        margin-top: 2vw;
+                    }
+                }
             }
         }
     }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0 }
+    to { opacity: 1 }
 }

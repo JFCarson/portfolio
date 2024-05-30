@@ -7,10 +7,10 @@
 {% block content %}
 <section>
     <article id="NameCard">
-        <h1>Jack Carson</h1>
-        <p>Software Engineer & Web Developer</p>
+        <h1 class="typewrite">Jack Carson</h1>
+        <p class="typewrite">Software Engineer & Web Developer</p>
     </article>
-    <article>
+    <article id="PersonalStatement">
         <p>
             Hello, and welcome to my portfolio! My name is Jack. I am a software engineer and web developer based in Manchester, UK.
             I specialise in creating dynamic, user-friendly web applications and innovative software solutions using both front-end
@@ -27,4 +27,8 @@
         <a class="button forward" href="#">Contact Me</a>
     </article>
 </section>
+{% endblock %}
+
+{% block javascript %}
+<script src="{{ url_for('main.static', filename='js/index.js') }}"></script>
 {% endblock %}
