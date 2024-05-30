@@ -6,6 +6,7 @@ This application was written using the following tech-stack:
 - Python (Flask/Jinja2)
 - HTML
 - CSS (LESS)
+- JavaScript ES6
 ---
 ## Installation
 If you choose to run this code locally, please take the following steps in the command line to ensure it runs correctly:

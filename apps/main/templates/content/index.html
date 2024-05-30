@@ -1,6 +1,34 @@
 {% extends 'template.html' %}
 
+{% block left_aside %}
+<section id="ImageLeft"></section>
+{% endblock %}
+
 {% block content %}
-<h1>Is this thing on?</h1>
-<h2>{{ pagekey }}</h2>
+<section>
+    <article id="NameCard">
+        <h1 class="typewrite">Jack Carson</h1>
+        <p class="typewrite">Software Engineer & Web Developer</p>
+    </article>
+    <article id="PersonalStatement">
+        <p>
+            Hello, and welcome to my portfolio! My name is Jack. I am a software engineer and web developer based in Manchester, UK.
+            I specialise in creating dynamic, user-friendly web applications and innovative software solutions using both front-end
+            and back-end technologies.
+        </p>
+        <p>
+            I thrive on transforming complex challenges into seamless digital experiences; whether it is developing robust back-end
+            systems, crafting interactive user interfaces, or optimising the performance of an existing application, I bring a keen eye
+            for detail and a commitment to excellence to each and every project.
+        </p>
+        <p>
+            Please, take a look around, and feel free to get in touch.
+        </p>
+        <a class="button forward" href="#">Contact Me</a>
+    </article>
+</section>
+{% endblock %}
+
+{% block javascript %}
+<script src="{{ url_for('main.static', filename='js/index.js') }}"></script>
 {% endblock %}

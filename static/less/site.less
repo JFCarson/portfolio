@@ -1,10 +1,178 @@
+@import './static/less/variables.less';
+@import './static/less/mixins.less';
+
+// Reset Default Browser Styles
 * {
+    box-sizing: border-box;
+    font-size: @default-font-size;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
+// Universal Styling
+
+a {
+    color: @link-text-color;
+    font-weight: bold;
+    text-decoration: none;
+    width: 20%;
+}
+
+// Body Styling
 body {
+    background-color: @brand-background;
+    color: @brand-text;
+    font-family: @default-font-family;
+    line-height: @default-line-height;
     margin: 0rem 10rem;
-    font-family: "Poppins", sans-serif;
+
+    header {
+        background-color: @header-background-color;
+        border-radius: @header-border-radius;
+        box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.1);
+        color: @header-text-color;
+        display: flex;
+        height: @header-height;
+        left: 50%;
+        margin-top: @header-margin-top;
+        position: absolute;
+        transform: translateX(-50%);
+        width: 95%;
+        z-index: @header-z-index;
+
+        article {
+            flex-grow: 1;
+            width: min-content;
+            img {
+                margin: 1em;
+                max-width: @header-image-size;
+            }
+        }
+
+        nav {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0 2em;
+            width: 60%;
+
+            span {
+                display: inline-block;
+                position: relative;
+
+                &:before {
+                    background-color: @link-text-color;
+                    bottom: -1px;
+                    content: '';
+                    height: 2px;
+                    position: absolute;
+                    transition: width 0.3s ease-in-out;
+                    width: 0;
+                }
+
+                &.active {
+                    a {
+                        color: @nav-link-active-text-color;
+                    }
+                    &:before {
+                        background-color: @nav-link-active-text-color;
+                    }
+                }
+
+                &:hover {
+                    &:before {
+                        width: 100%;
+                    }
+                }
+            }
+
+            #DownloadCV.button {
+                width: @header-cv-button-width;
+
+                &:after {
+                    content: "\25BC";
+                    margin-left: @button-arrow-margin;
+                }
+            }
+        }
+    }
+
+    main {
+        background-color: @main-background-color;
+        color: @main-text-color;
+        padding: @main-padding;
+        padding-top: calc(@header-margin-top + @header-height + 2em);
+        position: fixed;
+        z-index: @main-z-index;
+    }
+
+    aside {
+        background-color: @aside-background-color;
+        border-left: solid @aside-border-size @aside-border-color;
+        height: 100%;
+        padding: @aside-padding-top 0 @aside-padding-bottom;
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: @aside-width;
+        z-index: @aside-z-index;
+
+        nav {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: @aside-image-gap;
+            height: 100%;
+            justify-content: flex-end;
+
+            a {
+                width: min-content;
+
+                img {
+                    border: solid @aside-border-size @aside-border-color;
+                    border-radius: 100%;
+                    padding: @aside-image-padding;
+                    width: @aside-image-size;
+
+                    &:hover {
+                        background-color: darken(@aside-background-color, @button-background-hover-darken);
+                    }
+
+                }
+            }
+        }
+    }
+
+    // Buttons
+    .button {
+        background-color: @button-background-color;
+        border: solid @button-border-size @button-border-color;
+        border-radius: @button-border-radius;
+        color: @button-text-color;
+        display: block;
+        font-weight: bold;
+        padding: @button-padding;
+        text-align: center;
+        width: @button-width;
+
+        &.primary {
+            border-color: @brand-primary;
+            color: @brand-primary;
+        }
+
+        &.forward:after {
+            content: "\25B6";
+            margin-left: @button-arrow-margin;
+        }
+
+        &.back:before {
+            content: "\25C0";
+            margin-right: @button-arrow-margin;
+        }
+
+        &:hover {
+            background-color: darken(@button-background-color, @button-background-hover-darken);
+        }
+    }
 }

@@ -2,6 +2,12 @@ from six import StringIO
 from lesscpy import compile
 from os import listdir, path, mkdir
 
+# Ignore Specific LESS Files
+exclusion_list = [
+    'mixins',
+    'variables'
+]
+
 
 # Convert LESS to CSS
 def cssify(input_path, output_path):
@@ -9,7 +15,7 @@ def cssify(input_path, output_path):
         with open(input_path, 'r') as less_file:
             less_content = less_file.read()
 
-        css_content = compile(StringIO(less_content), minify=True)
+        css_content = compile(StringIO(less_content))
 
         with open(output_path, 'w') as css_file:
             css_file.write(css_content)
@@ -42,7 +48,10 @@ def compile_less(static_directory):
 
     for file in less_files:
         filename = path.splitext(file)[0]
-        cssify(f'{static_directory}/less/{filename}.less', f'{static_directory}/css/{filename}.css')
+        if filename not in exclusion_list :
+            cssify(f'{static_directory}/less/{filename}.less', f'{static_directory}/css/{filename}.css')
+        else:
+            print(f'Skipping {file}...')
 
 
 def create_css():
