@@ -8,8 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function typewrite(inputText, target) {
+        textLength = inputText.length
         for (let letter of inputText) {
-            await delay(30)
+            await delay(50 - textLength)
             target.innerHTML += letter
         }
     }
