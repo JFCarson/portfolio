@@ -1,6 +1,7 @@
 from six import StringIO
 from lesscpy import compile
 from os import listdir, path, mkdir
+from utils.processinfo import *
 
 # Ignore Specific LESS Files
 exclusion_list = [
@@ -20,10 +21,10 @@ def cssify(input_path, output_path):
         with open(output_path, 'w') as css_file:
             css_file.write(css_content)
 
-        print(f'Successfully compiled {input_path} to {output_path}')
+        info(f'Successfully compiled {input_path} to {output_path}')
 
     except Exception as e:
-        print(f'Failed to compile {input_path}: {e}')
+        error(f'Failed to compile {input_path}: {e}')
 
 
 def compile_root_less():
@@ -39,19 +40,19 @@ def compile_module_less(module):
 def compile_less(static_directory):
     less_files = listdir(f'{static_directory}/less')
     if 'css' not in listdir(static_directory):
-        print(f'"{static_directory}/css" not found. Creating...')
+        info(f'"{static_directory}/css" not found. Creating...')
         try:
             mkdir(f'{static_directory}/css')
-            print(f'"{static_directory}/css" has been created.')
+            info(f'"{static_directory}/css" has been created.')
         except Exception as e:
-            print(f'Failed to create directory: {e}')
+            error(f'Failed to create directory: {e}')
 
     for file in less_files:
         filename = path.splitext(file)[0]
         if filename not in exclusion_list :
             cssify(f'{static_directory}/less/{filename}.less', f'{static_directory}/css/{filename}.css')
         else:
-            print(f'Skipping {file}...')
+            info(f'Skipping {file}...')
 
 
 def create_css():
@@ -59,6 +60,8 @@ def create_css():
     app_list = [d for d in listdir('apps') if path.isdir(path.join('apps', d))]
     if '__pycache__' in app_list:
         app_list.remove('__pycache__')
+
+    info('Compiling LESS to CSS')
 
     # Generate Root CSS
     compile_root_less()
